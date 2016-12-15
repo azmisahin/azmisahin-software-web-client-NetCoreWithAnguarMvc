@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "Azmi ŞAHİN <bilgi@azmisahin.com>"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-resource": "1.5.2",
+    "angular-route": "1.5.2",
+    "angular-sanitize": "1.5.2",
+    "bootstrap-css": "~3.3.4",
+    "headjs": "1.0.3",
+    "jquery-ui": "~1.11.4"
+  },
+  "description": "Web Application Library Package Manager",
+  "name": "LibraryManager",
+  "private": true,
+  "version": "0.0.1",
+  "resolutions": {
+    "angular": "1.5.2"
+  }
+}
