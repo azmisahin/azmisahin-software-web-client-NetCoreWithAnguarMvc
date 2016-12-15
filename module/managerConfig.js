@@ -3,22 +3,21 @@
     * Manager: managerModule.js v0.0.0.1
     ████████████████████████████████████████████████████████████████████████████████████████████████████
 */
-(function () {
-    'use strict';
-    // Config
-    Manager.Web.config(['$routeProvider',
-        function ($routeProvider) {
-            var views = '../../views/';
-            $routeProvider.
-                when('/dashboard', {
-                    templateUrl: views + 'dashboard/index.html'
-                }).
-                when('/signin',
-                {
-                    templateUrl: views + 'account/signin.html'
-                }).
-                otherwise({
-                    redirectTo: '/signin'
-                });
-        }]);
-})();
+// Configuration
+Manager.Web.config(config);
+// inject
+config.$inject = ['$stateProvider', '$urlRouterProvider'];
+// Config
+var proo = [];
+function config($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/account");
+    var views = '../../views/';
+
+    $stateProvider
+        // App Layout
+        .state("app", { url: "/app", templateUrl: views + "shared/layout.html" })
+        // Login Page
+        .state("account", { url: "/account", templateUrl: views + "account/signin.html" })
+        // Dashboard
+        .state("app.dashboard", { url: "/dashboard", templateUrl: views + "dashboard/index.html" })
+}

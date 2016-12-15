@@ -14,9 +14,11 @@
         var vm = this;
         vm.Models = [];
         vm.title = 'Dashboard';
-        activate();
+        //activate();
         // Active Controller
         function activate() {
+            //Resource
+            vm.r = r;
             factory.Init()
                 .then(function successCallback(response) {
                     vm.Models = response;

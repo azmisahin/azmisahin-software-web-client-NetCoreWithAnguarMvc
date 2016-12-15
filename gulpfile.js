@@ -62,7 +62,8 @@ gulp.task('ManagerBuildApplication', function () {
             //Factory
             , AppRoot + 'factory/account/signinFactory.js'
             , AppRoot + 'factory/account/dashboardFactory.js'
-            //Controller
+            //controllers
+            , AppRoot + 'controllers/managerController.js'
             , AppRoot + 'controllers/account/signinController.js'
             , AppRoot + 'controllers/account/dashboardController.js'
 

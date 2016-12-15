@@ -1,6 +1,22 @@
-﻿/*
+/*
     ████████████████████████████████████████████████████████████████████████████████████████████████████
-    * Manager: managerModule.js v0.0.0.1
+    * Manager: managerController.js v0.0.0.1
     ████████████████████████████████████████████████████████████████████████████████████████████████████
 */
-Manager.Web = angular.module('managerModule', ['ui.router', 'ngResource', 'ngSanitize']);
+(function () {
+    'use strict';
+    // Controller Configuration
+    Manager.Web.controller('managerController', managerController);
+    // Inject
+    managerController.$inject = ['$location'];
+    // Controller
+    function managerController($location) {
+        var vm = this;
+        vm.Models = [];
+        vm.title = 'Application';
+        activate();
+        function activate() {
+            vm.r = r;
+        }
+    }
+})();

@@ -13,18 +13,55 @@
     function signinController($location, factory) {
         var vm = this;
         vm.Models = [];
-        vm.title = 'Giriş';
+        vm.account = {};
+        vm.title = 'Login';
         activate();
         // Active Controller
         function activate() {
-            factory.Login()
+            //Resource
+            vm.r = r;   
+            vm.submit = submit;
+        }
+        // Submit User
+        function submit()
+        {
+            connect();
+        }
+        // Services Connect
+        function connect()
+        {
+            vm.message = { status: "success", title: "Authentice" };
+            factory.Login(vm.account)
                 .then(function successCallback(response) {
                     vm.Models = response;
+                    // Authenticated Progress
+                    servicesCallBack(response);
+                    return vm.Models;
                 },
                 function errorCallback(response) {
                     vm.Models = response;
-                    console.log("err"); return response;
+                    servicesCallBack(response);
+                    // Authentication Service Connection Faild
+                    return vm.Models;
                 })
+        }
+        // Serices Connect
+        function servicesCallBack(response)
+        {
+            console.log("Account Service Callback",response);
+            if (response.statusText != "OK") {
+                vm.message = { status: "success", title: "Services Connection Error" };
+                console.log(vm.title); return null;
+            }
+            if (response.data == null) {
+                vm.message = { status: "success", title: "Authentication Services Account Problem" };
+                console.log(vm.title); return null;
+            }
+            if (response.data.isAuthenticated) {
+                vm.message = { status: "success", title: "Success" };
+                console.log(vm.title);
+                $location.path('/app/dashboard');
+            }
         }
     }
 })();

@@ -30,11 +30,11 @@
         var service = {
             Login: getLogin
         };
-        return service;       
+        return service;
         // Get Login
-        function getLogin() {
+        function getLogin(model) {
             var uri = Api.Domain + Api.Ver + Api.ServicesUri.Login;
-            var config = { method: 'get', url: uri, headers: { 'Accept': 'application/json', 'Authorization': 'Token token=' + Api.Token } };
+            var config = { data: model, method: 'get', url: uri /*, headers: { 'Accept': 'application/json', 'Authorization': 'Token token=' + Api.Token } // Token By Authorization Live Area */ };
             console.log("Get Login Request Start", config);
             return $http(config)
             //.then(function successCallback(response) { console.log(response); return response; }, function errorCallback(response) { console.log("err"); return response; });

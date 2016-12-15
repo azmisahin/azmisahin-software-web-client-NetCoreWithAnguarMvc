@@ -1,7 +1,19 @@
-﻿<section>
-    <header>{{resource.account.signin.header}}</header>
-    <form action="#/dashboard">
-        <input name="email" type="email" placeholder="{{resource.account.signin.form.email}}" required />
-        <button>{{resource.account.signin.form.button}}</button>
+﻿<!--signin-->
+<section>
+    <header>{{vm.r.account.signin.header}}</header>
+    <form name="form" ng-submit="vm.submit()">
+        <fieldset>
+            <input type="email" ng-model="vm.account.email" required>
+            <label>{{vm.r.account.signin.form.username}}</label>
+        </fieldset>
+        <fieldset>
+            <input type="password" ng-model="vm.account.password" required>
+            <label>{{vm.r.account.signin.form.password}}</label>
+        </fieldset>
+        <fieldset>
+            <button type="submit">{{vm.r.account.signin.form.submit}}</button>
+        </fieldset>
+        <fieldset class="alert alert-{{vm.message.status}}">{{vm.message.title}}</fieldset>
     </form>
 </section>
+<!--/signin-->

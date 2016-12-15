@@ -14,14 +14,14 @@
     // Api
     var Api = {
         Token: 'qw$1€2&3%',
-        // Api Domain
+        // Api Domain   
         Domain: '//api.azmisahin.com/' //Sample Api URL
         // Api Version
         , Ver: 'api/'
         // Api Services
         , ServicesUri: {
-            // Login
-            Init: 'Init'
+            // Test
+            Init: 'Tests'
         }
     }
     // Factory
@@ -34,7 +34,7 @@
         // Get Init
         function getInit() {
             var uri = Api.Domain + Api.Ver + Api.ServicesUri.Init;
-            var config = { method: 'get', url: uri, headers: { 'Accept': 'application/json', 'Authorization': 'Token token=' + Api.Token } };
+            var config = { method: 'get', url: uri /*, headers: { 'Accept': 'application/json', 'Authorization': 'Token token=' + Api.Token } */ };
             console.log("Get Request Start", config);
             return $http(config);
         }
